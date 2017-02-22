@@ -9,16 +9,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start () {
         _rgb2d = GetComponent<Rigidbody2D>();
+        ControllerInput.MovementInput += Move;
 	}
-	
-	void Update () {
-        Move();
-    }
 
-    void Move()
+    void Move(Vector2 moveDir)
     {
-        float x = Input.GetAxis("Left_JoystickX_P1");
-        float y = Input.GetAxis("Left_JoystickY_P1");
-        _rgb2d.velocity = new Vector2(x * _moveSpeed, y * _moveSpeed);
+        _rgb2d.MovePosition(_rgb2d.position + moveDir * _moveSpeed * Time.deltaTime);
     }
 }
