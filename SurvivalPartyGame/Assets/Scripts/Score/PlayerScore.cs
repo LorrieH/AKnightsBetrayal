@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class PlayerScore : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     void AddScore(PlayerCharacter player,int scoreToAdd)
     {
         player.Score += scoreToAdd;

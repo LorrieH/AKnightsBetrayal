@@ -34,4 +34,16 @@ public class PlayerCharacter : Character {
         get { return _score; }
         set { _score = value; }
     }
+
+    void Death()
+    {
+        _animator.SetBool("isDead", true);
+        _currentState = PlayerState.DEAD;
+    }
+
+    void BecomeEnemy()
+    {
+        _currentState = PlayerState.ENEMY;
+        this.tag = Tags.ENEMY;
+    }
 }
