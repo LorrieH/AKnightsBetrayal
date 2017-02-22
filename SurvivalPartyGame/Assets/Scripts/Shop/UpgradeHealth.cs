@@ -6,7 +6,7 @@ public class UpgradeHealth : ShopItem, IUpgrade {
 
     public void Upgrade(PlayerCharacter character)
     {
-        //character.Health = character.Health + ()
+        character.Health = character.Health * 1.1f;
         character.Gold -= _cost;
     }
 
