@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Character {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private EnemySpawner _enemySpawner;
+
+    void Start()
+    {
+        _enemySpawner = GameObject.FindGameObjectWithTag(Tags.ENEMYSPAWNER).GetComponent<EnemySpawner>();
+    }
+
+    void Death()
+    {
+        _animator.SetBool("isDead",true);
+        _enemySpawner.
+    }
 }
