@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerChecker : MonoBehaviour {
+public class PlayerParty : MonoBehaviour {
 
     [SerializeField]private List<GameObject> _players = new List<GameObject>();
+    [SerializeField]private List<PlayerCharacter> _playerCharacters = new List<PlayerCharacter>();
 	// Use this for initialization
 	void Start () {
         AddPlayers();	
@@ -20,6 +21,15 @@ public class PlayerChecker : MonoBehaviour {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag(Tags.PLAYER))
         {
             _players.Add(player);
+        }
+    }
+
+    void AddCharacters()
+    {
+        for (int i = 0; i < _players.Count; i++)
+        {
+            PlayerCharacter characterToAdd = _players[i].GetComponent<PlayerCharacter>();
+            _playerCharacters.Add(characterToAdd);
         }
     }
 }

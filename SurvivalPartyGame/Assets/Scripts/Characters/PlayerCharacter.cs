@@ -74,6 +74,6 @@ public class PlayerCharacter : Character {
 
     void DealDamage()
     {
-        ExecuteEvents.Execute<IDamageable>(enemy, null, (x, y) => x.TakeDamage(Damage));
+        //ExecuteEvents.Execute<IDamageable>(enemy, null, (x, y) => x.TakeDamage(Damage));
     }
 }
