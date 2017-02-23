@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : EnemyDatabase {
+public class EnemySpawner : MonoBehaviour {
 
     [SerializeField]private List<GameObject> _enemyTypes = new List<GameObject>();
     [SerializeField]private Transform _enemyParentObject;

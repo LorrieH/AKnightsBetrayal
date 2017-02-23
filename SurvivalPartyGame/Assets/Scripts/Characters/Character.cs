@@ -13,6 +13,7 @@ public class Character : MonoBehaviour {
 
     protected float _currentHealth;
     protected Character _damageSource;
+    
     //Getters & Setters
     public string Name
     {
