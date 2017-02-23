@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerCharacter : Character {
 
@@ -61,5 +62,18 @@ public class PlayerCharacter : Character {
     {
         _currentState = PlayerState.ENEMY;
         this.tag = Tags.ENEMY;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DealDamage();
+        }
+    }
+
+    void DealDamage()
+    {
+        ExecuteEvents.Execute<IDamageable>(enemy, null, (x, y) => x.TakeDamage(Damage));
     }
 }
