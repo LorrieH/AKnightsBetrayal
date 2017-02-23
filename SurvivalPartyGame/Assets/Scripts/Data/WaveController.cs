@@ -25,6 +25,7 @@ public class WaveController : MonoBehaviour {
                 NextWave();
             }
         }
+        Debug.Log(_enemiesSpawned);
 	}
 
     void NextWave()

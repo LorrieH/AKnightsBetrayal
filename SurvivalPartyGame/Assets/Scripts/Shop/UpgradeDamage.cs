@@ -6,9 +6,12 @@ public class UpgradeDamage : ShopItem, IUpgrade {
 
     public void Upgrade(PlayerCharacter character)
     {
-
-        character.Damage = character.Damage * 1.1f;
-        character.Gold -= _cost; //Reduces the players gold by the cost of the upgrade
+        if (_cost <= character.Gold)
+        {
+            character.Damage = character.Damage * 1.1f;
+            character.Gold -= _cost; //Reduces the players gold by the cost of the upgrade
+            DetermineNewCost();
+        }
     }
 
     public void DetermineNewCost()

@@ -6,8 +6,11 @@ public class UpgradeHealth : ShopItem, IUpgrade {
 
     public void Upgrade(PlayerCharacter character)
     {
-        character.Health = character.Health * 1.1f;
-        character.Gold -= _cost;
+        if (_cost <= character.Gold)
+        {
+            character.MaxHealth = character.MaxHealth * 1.1f;
+            character.Gold -= _cost;
+        }
     }
 
     public void DetermineNewCost()

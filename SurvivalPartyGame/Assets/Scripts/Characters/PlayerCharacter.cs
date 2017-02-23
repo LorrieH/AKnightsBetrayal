@@ -41,6 +41,22 @@ public class PlayerCharacter : Character {
         _currentState = PlayerState.DEAD;
     }
 
+    void TakeDamage(Character character)
+    {
+        _currentHealth -= character.Damage;
+        if (_currentHealth <= 0)
+        {
+            StartCoroutine(DeathRoutine());
+        }
+    }
+
+    IEnumerator DeathRoutine()
+    {
+        _animator.SetBool("isDead", true);
+        _currentState = PlayerState.DEAD;
+        yield return new WaitForSeconds(1);
+    }
+
     void BecomeEnemy()
     {
         _currentState = PlayerState.ENEMY;
